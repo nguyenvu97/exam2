@@ -9,6 +9,7 @@ import org.springframework.boot.exam2.mapper.ProductMapper;
 import org.springframework.boot.exam2.model.Enum.ProductType;
 import org.springframework.boot.exam2.model.Manufacturer;
 import org.springframework.boot.exam2.model.Product;
+import org.springframework.boot.exam2.projection.Manu_product;
 import org.springframework.boot.exam2.repository.ManufacturerDao;
 import org.springframework.boot.exam2.repository.ProductDao;
 import org.springframework.boot.exam2.service.ProductService;
@@ -51,8 +52,7 @@ public class ProductServiceImpl implements ProductService {
 
     @Override
     public int countProduct(long manufacturerId) {
-        int count = productDao.countManufacturer(manufacturerId);
-        return count;
+        return productDao.countManufacturer(manufacturerId);
     }
 
     @Override
@@ -89,5 +89,10 @@ public class ProductServiceImpl implements ProductService {
        product.setDiscount(productRequest.getDiscount());
        product.setDescription(productRequest.getDescription());
         return productMapper.toEntity(productDao.save(product));
+    }
+
+    @Override
+    public List<Manu_product>  searchProduct1(String productName) {
+        return productDao.findByData(productName);
     }
 }

@@ -16,3 +16,7 @@ spring:
     show-sql: true
 server:
   port: 1008
+
+appConfig:
+  default-page-size: 10
+  default-page-number: 0

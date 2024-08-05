@@ -55,4 +55,13 @@ public class ProductController {
             return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
         }
     }
+    @GetMapping("/new_search")
+    public ResponseEntity<?> new_search( @RequestParam String productName) {
+        try {
+            return ResponseEntity.ok().body(productService.searchProduct1(productName));
+
+        }catch (NotFound e){
+            return ResponseEntity.status(HttpStatus.NOT_FOUND).body(e.getMessage());
+        }
+    }
 }

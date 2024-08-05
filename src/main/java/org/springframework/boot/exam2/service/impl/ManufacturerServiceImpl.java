@@ -44,7 +44,6 @@ public class ManufacturerServiceImpl implements ManufacturerService {
     @Override
     public ManufacturerDto update(long manufacturerId, Manufac_Request manufacRequest) {
         Manufacturer manufacturer1 = manufacturerDao.findById(manufacturerId).orElseThrow(()-> new NotFound("manufacturer not found"));
-
         manufacturer1.setName(manufacRequest.getName());
         manufacturer1.setOrigin(manufacRequest.getOrigin());
         manufacturer1.setDescription(manufacRequest.getDescription());
