@@ -27,6 +27,6 @@ public interface StudentDao  extends JpaRepository<Student, Long> {
             " from Student as s  " +
             "left join  StudentScore  as ss on ss.student.id = s.id  " +
             "left join  Subject as sub on ss.subject.id  = sub.id  " +
-            "where s.studentName like %=:studentName%")
+            "where (:studentName is null or s.studentName like %:studentName%)")
     List<StudentProjection> findByUserName1(@Param(value = "studentName") String studentName, Pageable pageable);
 }

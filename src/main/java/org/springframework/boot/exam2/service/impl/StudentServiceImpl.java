@@ -72,4 +72,10 @@ public class StudentServiceImpl implements StudentService {
         }
         return studentDao.findByUserName1(studentRequest.getStudentName(),PageRequest.of(studentRequest.getPageNumber(), studentRequest.getPageSize()));
     }
+
+    @Override
+    public List<StudentProjection> getAll() {
+        StudentRequest studentRequest = new StudentRequest();
+        return newSearch(studentRequest);
+    }
 }

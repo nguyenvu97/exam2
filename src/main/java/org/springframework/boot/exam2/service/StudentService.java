@@ -17,4 +17,6 @@ public interface StudentService {
     InfoStudent findById(Long id);
 
     List<StudentProjection> newSearch(StudentRequest studentRequest);
+
+    List<StudentProjection>getAll();
 }
